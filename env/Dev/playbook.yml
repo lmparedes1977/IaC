@@ -6,15 +6,20 @@
       - python3
       - virtualenv
       update_cache: yes
-    become: yes
+    become: true
   - name: ativando virtualenve e instalando django e djangorestframework
     pip:
       virtualenv: /home/ubuntu/tcc/venv
       name:
       - django
       - djangorestframework
-  - name: criando o projeto django
+  - name: testa projeto já existe
+    stat:
+      path: /home/ubuntu/tcc/setup/settings.py
+    register: projeto
+  - name: iniciando o projeto django    
     shell: '. /home/ubuntu/tcc/venv/bin/activate ; django-admin startproject setup /home/ubuntu/tcc'
+    when: not projeto.stat.exists
   - name: editando o settings.py
     lineinfile:
       path: /home/ubuntu/tcc/setup/settings.py
