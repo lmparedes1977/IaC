@@ -1,6 +1,5 @@
 resource "aws_security_group" "acesso" {
-    name = "acesso_${var.ambiente}_alura"
-    description = "grupo Seguranca equipe Desenvolvimento"
+    name = var.grupoDeSeguranca
     ingress {
         cidr_blocks = ["0.0.0.0/0"]
         ipv6_cidr_blocks = ["::/0"]
