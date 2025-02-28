@@ -1,10 +1,11 @@
 module "aws-prod" {
     source = "../../infra"
     instancia = "t2.micro"
-    regiao_aws = "us-east-2"
+    regiao_aws = "us-east-1"
     chave = "Iac-PROD"
     ambiente = "prod"
-    grupoDeSeguranca = "Producao"
+    grupoDeSegurancaInstancia = "Prod_Instancia"
+    grupoDeSegurancaLb = "Prod_Lb" 
     nomeGrupo = "Prod"
     maximo = 10
     minimo = 1

@@ -14,7 +14,11 @@ variable "ambiente" {
     type = string
 }
 
-variable "grupoDeSeguranca" {
+variable "grupoDeSegurancaInstancia" {
+    type = string
+}
+
+variable "grupoDeSegurancaLb" {
     type = string
 }
 

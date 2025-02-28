@@ -1,9 +1,8 @@
-cd /home/ubunu
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python3 get-pip.py
-sudo python3 -m pip install ansible
-tee -a playbook.yml > /dev/null << EOT
 #!/bin/bash
+cd /home/ubunu
+sudo apt update -y
+sudo apt install python3-pip ansible -y
+tee -a playbook.yml > /dev/null << EOT
 - hosts: localhost
   tasks: 
   - name: instalando python3, virtualenv
