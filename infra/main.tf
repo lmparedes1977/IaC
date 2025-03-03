@@ -2,11 +2,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.16"
+      version = "~> 3.27"
     }
   }
 
-  required_version = ">= 1.2.0"
+  required_version = ">= 0.14.9"
 }
 
 provider "aws" {
@@ -24,14 +24,15 @@ provider "aws" {
 # }
 
 resource "aws_launch_template" "maquina" {
+  name = "maquina-template"
   image_id = "ami-04b4f1a9cf54c11d0"
   instance_type = var.instancia
   key_name = var.chave
   tags = {
     Name = "Terraform Ansible Python"
   }
-  security_group_names = [ var.grupoDeSegurancaInstancia, var.grupoDeSegurancaLb ]
-  user_data = filebase64("ansible.sh")
+  vpc_security_group_ids = [ aws_security_group.acesso_geral.id ]
+  user_data = var.producao ? ("ansible.sh") : ""
 }
 
 resource "aws_key_pair" "chaveSSH" {

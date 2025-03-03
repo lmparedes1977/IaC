@@ -18,8 +18,8 @@ variable "grupoDeSegurancaInstancia" {
     type = string
 }
 
-variable "grupoDeSegurancaLb" {
-    type = string
+variable "producao" {
+    type = bool
 }
 
 variable "nomeGrupo" {

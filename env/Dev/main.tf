@@ -5,7 +5,7 @@ module "aws-dev" {
     chave = "Iac-DEV"
     ambiente = "dev"
     grupoDeSegurancaInstancia = "Des_Instancia"
-    grupoDeSegurancaLb = "Des_Lb"
+    producao = false
     nomeGrupo = "Dev"
     maximo = 1
     minimo = 0

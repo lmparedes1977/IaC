@@ -5,7 +5,7 @@ module "aws-prod" {
     chave = "Iac-PROD"
     ambiente = "prod"
     grupoDeSegurancaInstancia = "Prod_Instancia"
-    grupoDeSegurancaLb = "Prod_Lb" 
+    producao = true 
     nomeGrupo = "Prod"
     maximo = 10
     minimo = 1
