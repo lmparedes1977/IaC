@@ -32,7 +32,7 @@ resource "aws_launch_template" "maquina" {
     Name = "Terraform Ansible Python"
   }
   vpc_security_group_ids = [ aws_security_group.acesso_geral.id ]
-  user_data = var.producao ? ("ansible.sh") : ""
+  user_data = var.producao ? filebase64("ansible.sh") : ""
 }
 
 resource "aws_key_pair" "chaveSSH" {
